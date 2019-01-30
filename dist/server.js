@@ -1,5 +1,7 @@
-var koa = require('koa');
-var AV = require('leanengine');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const koa = require("koa");
+const AV = require("leanengine");
 AV.init({
     appId: process.env.LEANCLOUD_APP_ID,
     appKey: process.env.LEANCLOUD_APP_KEY,
