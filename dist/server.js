@@ -1,15 +1,1 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const koa = require("koa");
-const AV = require("leanengine");
-AV.init({
-    appId: process.env.LEANCLOUD_APP_ID,
-    appKey: process.env.LEANCLOUD_APP_KEY,
-    masterKey: process.env.LEANCLOUD_APP_MASTER_KEY
-});
-var app = new koa();
-app.use(AV.koa());
-app.use((ctx) => {
-    ctx.body = 'Hello, Word!';
-});
-app.listen(process.env.LEANCLOUD_APP_PORT || 3000);
+!function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}r.m=e,r.c=t,r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:n})},r.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},r.t=function(e,t){if(1&t&&(e=r(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var n=Object.create(null);if(r.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var o in e)r.d(n,o,function(t){return e[t]}.bind(null,o));return n},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=1)}([function(e,t){e.exports=require("leanengine")},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const n=r(0),o=r(2);n.init({appId:process.env.LEANCLOUD_APP_ID,appKey:process.env.LEANCLOUD_APP_KEY,masterKey:process.env.LEANCLOUD_APP_MASTER_KEY}),n.Cloud.useMasterKey(),o.default.listen(process.env.LEANCLOUD_APP_PORT||3e3)},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});const n=r(0);var o=new(r(3));o.use(n.koa()),o.use(e=>{e.body="Hello, Word!"}),t.default=o},function(e,t){e.exports=require("koa")}]);
