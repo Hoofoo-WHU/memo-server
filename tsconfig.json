@@ -1,12 +1,15 @@
 {
   "compilerOptions": {
     "target": "es6",
+    "module": "commonjs",
     "strictNullChecks": true,
-    "baseUrl": "src",
+    "removeComments": true,
+    "baseUrl": ".",
+    "rootDir": "src",
     "outDir": "dist",
     "paths": {
       "@/*": [
-        "./*"
+        "src/*"
       ]
     }
   }
