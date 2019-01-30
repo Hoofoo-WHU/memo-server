@@ -10,6 +10,6 @@ AV.init({
 var app = new koa();
 app.use(AV.koa());
 app.use((ctx) => {
-    ctx.body = 'Hello, Word!!!';
+    ctx.body = 'Hello, Word!';
 });
 app.listen(process.env.LEANCLOUD_APP_PORT || 3000);
