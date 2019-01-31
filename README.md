@@ -16,8 +16,13 @@ yarn dev
 ```
 
 构建项目
-```
+```shell
 yarn build
+```
+
+代码检查
+```shell
+yarn lint
 ```
 
 使用leancloud启动项目

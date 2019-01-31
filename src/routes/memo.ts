@@ -1,6 +1,6 @@
 import Router = require('koa-router')
 
-let memo = new Router()
+const memo = new Router()
 
 memo.prefix('/memo')
 
