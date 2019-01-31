@@ -1,4 +1,3 @@
-// import Memo from '@/models/Memo'
 import Router = require('koa-router')
 import AV = require('leanengine')
 const router = new Router()
@@ -49,6 +48,10 @@ router.delete('/:id', async (ctx) => {
   } catch (e) {
     ctx.status = 400
   }
+})
+
+router.options('/:id', async (ctx) => {
+  ctx.status = 200
 })
 
 export default router
