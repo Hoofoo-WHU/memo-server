@@ -25,7 +25,7 @@ yarn build
 yarn lint
 ```
 
-使用leancloud启动项目
+使用leancloud启动项目，确保环境变量设置正确
 ```shell
 yarn add lean-cli -g
 lean login
@@ -40,3 +40,5 @@ chrome://inspect
 
 ## 相关文档
 [开发文档](docs)
+
+[API文档](docs/api.md)
