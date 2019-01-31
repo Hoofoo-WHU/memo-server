@@ -10,7 +10,8 @@
   },
   "pre-commit": [
     "lint",
-    "build"
+    "build",
+    "git add dist/"
   ],
   "engines": {
     "node": "*"
