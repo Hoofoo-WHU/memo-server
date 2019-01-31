@@ -5,13 +5,12 @@
   "scripts": {
     "start": "node dist/server.js",
     "dev": "nodemon --inspect -r ts-node/register -r tsconfig-paths/register --config config/nodemon.config.json src/server.ts",
-    "build": "webpack --config config/webpack.config.js",
+    "build": "webpack --config config/webpack.config.js && git add dist",
     "lint": "tslint -p . src/**/*.ts src/*.ts"
   },
   "pre-commit": [
     "lint",
-    "build",
-    "git add dist/"
+    "build"
   ],
   "engines": {
     "node": "*"
