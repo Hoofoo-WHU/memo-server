@@ -71,6 +71,13 @@
   resolved "http://registry.npm.taobao.org/@types/koa-compose/download/@types/koa-compose-3.2.2.tgz#dc106e000bbf92a3ac900f756df47344887ee847"
   integrity sha1-3BBuAAu/kqOskA91bfRzRIh+6Ec=
 
+"@types/koa-convert@^1.2.1":
+  version "1.2.1"
+  resolved "http://registry.npm.taobao.org/@types/koa-convert/download/@types/koa-convert-1.2.1.tgz#28c459eb9cfd5d2fb470ce1f0f8546f620fc4133"
+  integrity sha1-KMRZ65z9XS+0cM4fD4VG9iD8QTM=
+  dependencies:
+    "@types/koa" "*"
+
 "@types/koa-logger@^3.1.1":
   version "3.1.1"
   resolved "http://registry.npm.taobao.org/@types/koa-logger/download/@types/koa-logger-3.1.1.tgz#bf759ba2f25b7562ffa30b09616bb1c1e5070fea"
