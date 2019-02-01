@@ -2,7 +2,7 @@
 一个基于node.js的在线便签服务端
 
 ## 客户端项目
-[Memo](/Hoofoo-WHU/memo)
+[Memo](https://github.com/Hoofoo-WHU/memo)
 
 ## 本地运行
 
