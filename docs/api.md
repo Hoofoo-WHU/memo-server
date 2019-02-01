@@ -21,10 +21,10 @@ POST /api/login/github/:code
 ```json
 {
   "avatar": "GitHub头像Url",
-  "name": "GitHub用户名"
+  "name": "GitHub用户名"
 }
 ```
-## 获取所有便签
+## 获取所有便签
 ### 请求
 ```
 GET /api/memo/
