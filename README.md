@@ -1,6 +1,9 @@
 # memo-server
 一个基于node.js的在线便签服务端
 
+## 客户端项目
+[Memo](/Hoofoo-WHU/memo)
+
 ## 本地运行
 
 首先确认本机已经安装 Node.js 运行环境
