@@ -30,7 +30,7 @@ yarn lint
 
 使用leancloud启动项目，确保环境变量设置正确
 ```shell
-yarn add lean-cli -g
+brew install lean-cli -g
 lean login
 lean switch
 lean up

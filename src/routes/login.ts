@@ -27,7 +27,11 @@ router.post('/github/:code', async (ctx) => {
       }
       return
     } else {
-      const res2 = await Axios.get(`https://api.github.com/user?access_token=${res.data.access_token}`)
+      const res2 = await Axios.get('https://api.github.com/user', {
+        headers: {
+          Authorization: `token ${res.data.access_token}`
+        }
+      })
       ctx.session = {
         avatar: res2.data.avatar_url,
         id: res2.data.id,
