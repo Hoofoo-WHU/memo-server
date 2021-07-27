@@ -9,17 +9,9 @@ router.options('/:id', async (ctx) => {
   ctx.status = 200
 })
 
-router.all('*', async (ctx, next) => {
-  if (!ctx.session!.isLogin) {
-    ctx.status = 403
-    ctx.message = 'not login'
-    return
-  }
-  await next()
-})
 router.get('/', async (ctx) => {
   const query = new AV.Query('Memo')
-  query.equalTo('id', ctx.session!.id)
+  query.equalTo('id', ctx.state.user.id)
   const data = await query.find()
   ctx.body = data
 })
@@ -28,7 +20,7 @@ router.get('/:id', async (ctx) => {
   try {
     const query = new AV.Query('Memo')
     const data = await query.get(ctx.params.id)
-    if (data.get('id') === ctx.session!.id) {
+    if (data.get('id') === ctx.state.user.id) {
       ctx.body = data
     } else {
       ctx.status = 403
@@ -40,7 +32,7 @@ router.get('/:id', async (ctx) => {
 
 router.post('/', async (ctx) => {
   const memo = new Memo()
-  memo.set('id', ctx.session!.id)
+  memo.set('id', ctx.state.user.id)
   const data = await memo.save()
   ctx.body = data
 })
@@ -49,7 +41,7 @@ router.patch('/:id', async (ctx) => {
   try {
     const query = new AV.Query('Memo')
     const memo = await query.get(ctx.params.id)
-    if (memo.get('id') !== ctx.session!.id) {
+    if (memo.get('id') !== ctx.state.user.id) {
       ctx.status = 403
       return
     }
@@ -67,7 +59,7 @@ router.delete('/:id', async (ctx) => {
   try {
     const query = new AV.Query('Memo')
     const memo = await query.get(ctx.params.id)
-    if (memo.get('id') !== ctx.session!.id) {
+    if (memo.get('id') !== ctx.state.user.id) {
       ctx.status = 403
       return
     }

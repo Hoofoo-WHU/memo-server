@@ -5,20 +5,15 @@ import bodyParser = require('koa-bodyparser')
 import convert = require('koa-convert')
 import logger = require('koa-logger')
 import Router = require('koa-router')
-import session = require('koa-session')
 import AV = require('leanengine')
+import jwt = require('koa-jwt')
 
 const app = new Koa()
 app.keys = ['memo']
 app.use(convert(AV.koa() as any))
 app.use(logger())
 app.use(bodyParser())
-app.use(
-    session(
-        { maxAge: 'session', sameSite: 'none' as any, secure: true, domain: process.env.LEANCLOUD_DOMAIN },
-        app as any
-    )
-)
+app.use(jwt({ secret: process.env.LEANCLOUD_APP_KEY!}).unless({ path: /\/api\/login/ }))
 
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', ctx.header.origin as any)

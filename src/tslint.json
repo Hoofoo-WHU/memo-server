@@ -22,7 +22,9 @@
         "multiline": "never",
         "singleline": "never"
       }
-    ]
+    ],
+    "ordered-imports": false,
+    "object-literal-sort-keys": false
   },
   "rulesDirectory": []
 }
