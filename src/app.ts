@@ -22,7 +22,7 @@ app.use(async (ctx, next) => {
   await next()
 })
 
-app.use(jwt({ secret: process.env.LEANCLOUD_APP_KEY! }).unless({ path: [/\/api\/login/] }))
+app.use(jwt({ secret: process.env.LEANCLOUD_APP_KEY!, debug: true }).unless({ path: [/\/api\/login/] }))
 
 const api = new Router({ prefix: '/api' })
 api.use(memo.routes())
