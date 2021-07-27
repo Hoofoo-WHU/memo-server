@@ -6,7 +6,7 @@ const GITHUB_CLIENT_ID = process.env.GITHUB_CLIENT_ID
 const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
 
 router.post('/github/:code', async (ctx) => {
-  if (!ctx.session.isLogin) {
+  if (!ctx.session!.isLogin) {
     if (ctx.params.code === 'undefined') {
       ctx.status = 403
       return
@@ -36,17 +36,15 @@ router.post('/github/:code', async (ctx) => {
           Authorization: `token ${res.data.access_token}`
         }
       })
-      ctx.session = {
-        avatar: res2.data.avatar_url,
-        id: res2.data.id,
-        isLogin: true,
-        name: res2.data.name
-      }
+      ctx.session!.avatar = res2.data.avatar_url
+      ctx.session!.id = res2.data.id
+      ctx.session!.isLogin = true
+      ctx.session!.name = res2.data.name
     }
   }
   ctx.body = {
-    avatar: ctx.session.avatar,
-    name: ctx.session.name
+    avatar: ctx.session!.avatar,
+    name: ctx.session!.name
   }
 })
 

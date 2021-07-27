@@ -36,7 +36,7 @@
     "@types/koa-convert": "^1.2.1",
     "@types/koa-logger": "^3.1.1",
     "@types/koa-router": "^7.0.39",
-    "@types/koa-session": "^5.7.4",
+    "@types/koa-session": "^5.10.4",
     "@types/node": "^10.12.19",
     "clean-webpack-plugin": "^1.0.1",
     "nodemon": "^1.18.9",
