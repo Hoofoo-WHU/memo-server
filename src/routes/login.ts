@@ -56,9 +56,11 @@ router.post('/github/:code', async (ctx) => {
       name: res2.data.name,
       token: jwt.sign(
         {
-          avatar: res2.data.avatar_url,
-          name: res2.data.name,
-          id: res2.data.id
+          data: {
+            avatar: res2.data.avatar_url,
+            name: res2.data.name,
+            id: res2.data.id
+          }
         },
         process.env.LEANCLOUD_APP_KEY!
       )
