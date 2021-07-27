@@ -17,7 +17,7 @@ app.use(jwt({ secret: process.env.LEANCLOUD_APP_KEY!}).unless({ path: /\/api\/lo
 
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', ctx.header.origin as any)
-  ctx.set('Access-Control-Allow-Methods', 'PATCH,OPTION,POST,GET,DELETE')
+  ctx.set('Access-Control-Allow-Methods', 'PATCH,OPTIONS,POST,GET,DELETE')
   ctx.set('Access-Control-Allow-Headers', 'Content-Type')
   ctx.set('Access-Control-Allow-Credentials', 'true')
   await next()
