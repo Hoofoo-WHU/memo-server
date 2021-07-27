@@ -13,7 +13,7 @@ app.keys = ['memo']
 app.use(convert(AV.koa() as any))
 app.use(logger())
 app.use(bodyParser())
-app.use(session({ maxAge: 'session', sameSite: 'none' as any, secure: true }, app as any))
+app.use(session({ maxAge: 'session', sameSite: 'none' as any }, app as any))
 
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', ctx.header.origin as any)
