@@ -53,8 +53,8 @@ router.patch('/:id', async (ctx) => {
       ctx.status = 403
       return
     }
-    Reflect.ownKeys(ctx.request.body).forEach((val) => {
-      memo.set(val as string, ctx.request.body[val])
+    Reflect.ownKeys((ctx.request as any).body).forEach((val) => {
+      memo.set(val as string, (ctx.request as any).body[val])
     })
     const data = await memo.save()
     ctx.body = data
