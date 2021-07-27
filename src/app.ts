@@ -13,7 +13,6 @@ app.keys = ['memo']
 app.use(convert(AV.koa() as any))
 app.use(logger())
 app.use(bodyParser())
-app.use(jwt({ secret: process.env.LEANCLOUD_APP_KEY!}).unless({ path: /\/api\/login/ }))
 
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', ctx.header.origin as any)
@@ -22,6 +21,8 @@ app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Credentials', 'true')
   await next()
 })
+
+app.use(jwt({ secret: process.env.LEANCLOUD_APP_KEY!}).unless({ path: /\/api\/login/ }))
 
 const api = new Router({ prefix: '/api' })
 api.use(memo.routes())
