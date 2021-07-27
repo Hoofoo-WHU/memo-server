@@ -7,7 +7,7 @@ const GITHUB_CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET
 
 router.post('/github/:code', async (ctx) => {
   if (!ctx.session.isLogin) {
-    if (!ctx.params.code) {
+    if (ctx.params.code === 'undefined') {
       ctx.status = 403
       return
     }
