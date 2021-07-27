@@ -10,8 +10,11 @@ router.options('/:id', async (ctx) => {
 })
 
 router.all('*', async (ctx, next) => {
+  console.log('session', ctx.session)
   if (!ctx.session.isLogin) {
+    console.error('not login')
     ctx.status = 403
+    ctx.message = 'not login'
     return
   }
   await next()

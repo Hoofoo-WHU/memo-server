@@ -13,7 +13,7 @@
     "build"
   ],
   "engines": {
-    "node": "*"
+    "node": "12.x"
   },
   "repository": "git@github.com:Hoofoo-WHU/memo-server.git",
   "author": "Hoofoo <wangshuophone@icloud.com>",
