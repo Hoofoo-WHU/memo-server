@@ -23,7 +23,7 @@ router.post('/github/:code', async (ctx) => {
     return
   }
   if (ctx.params.code === 'undefined') {
-    ctx.status = 403
+    ctx.status = 401
     return
   }
   const res = await Axios({
@@ -39,7 +39,7 @@ router.post('/github/:code', async (ctx) => {
     url: 'https://github.com/login/oauth/access_token'
   })
   if (res.data.error) {
-    ctx.status = 403
+    ctx.status = 401
     ctx.body = {
       error: res.data.error,
       error_description: res.data.error_description
@@ -61,7 +61,7 @@ router.post('/github/:code', async (ctx) => {
           id: res2.data.id
         },
         process.env.LEANCLOUD_APP_KEY!,
-        { expiresIn: 60 * 60 }
+        { expiresIn: '2h' }
       )
     }
   }
