@@ -22,10 +22,12 @@ app.use(async (ctx, next) => {
   await next()
 })
 
-app.use((ctx) => {
+app.use((ctx, next) => {
   if (ctx.method && /options/i.test(ctx.method)) {
     ctx.body = ''
+    return
   }
+  return next()
 })
 
 app.use(jwt({ secret: process.env.LEANCLOUD_APP_KEY!, debug: true }).unless({ path: [/\/api\/login/] }))
