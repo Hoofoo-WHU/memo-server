@@ -14,7 +14,7 @@ router.options('/:id', async (ctx) => {
 })
 
 router.get('/', async (ctx) => {
-  console.error(ctx.state)
+  console.error(ctx)
   const query = new AV.Query('Memo')
   query.equalTo('id', ctx.state.user.id)
   const data = await query.find()
