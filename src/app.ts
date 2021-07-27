@@ -10,13 +10,13 @@ import AV = require('leanengine')
 
 const app = new Koa()
 app.keys = ['memo']
-app.use(convert(AV.koa() as Koa.Middleware))
+app.use(convert(AV.koa() as any))
 app.use(logger())
 app.use(bodyParser())
-app.use(session({ maxAge: 'session', sameSite: 'none' as any, secure: true }, app))
+app.use(session({ maxAge: 'session', sameSite: 'none' as any, secure: true }, app as any))
 
 app.use(async (ctx, next) => {
-  ctx.set('Access-Control-Allow-Origin', ctx.header.origin)
+  ctx.set('Access-Control-Allow-Origin', ctx.header.origin as any)
   ctx.set('Access-Control-Allow-Methods', 'PATCH,OPTION,POST,GET,DELETE')
   ctx.set('Access-Control-Allow-Headers', 'Content-Type')
   ctx.set('Access-Control-Allow-Credentials', 'true')
