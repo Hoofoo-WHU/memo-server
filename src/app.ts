@@ -17,7 +17,7 @@ app.use(bodyParser())
 app.use(async (ctx, next) => {
   ctx.set('Access-Control-Allow-Origin', ctx.header.origin as any)
   ctx.set('Access-Control-Allow-Methods', 'PATCH,OPTIONS,POST,GET,DELETE')
-  ctx.set('Access-Control-Allow-Headers', 'authorization')
+  ctx.set('Access-Control-Allow-Headers', ['Content-Type', 'Authorization'])
   ctx.set('Access-Control-Allow-Credentials', 'true')
   await next()
 })
