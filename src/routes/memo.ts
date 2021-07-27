@@ -5,6 +5,10 @@ const router = new Router()
 router.prefix('/memo')
 const Memo = AV.Object.extend('Memo')
 
+router.options('/', async (ctx) => {
+  ctx.status = 200
+})
+
 router.options('/:id', async (ctx) => {
   ctx.status = 200
 })
