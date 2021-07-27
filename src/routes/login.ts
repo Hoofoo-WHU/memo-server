@@ -60,7 +60,8 @@ router.post('/github/:code', async (ctx) => {
             avatar: res2.data.avatar_url,
             name: res2.data.name,
             id: res2.data.id
-          }
+          },
+          exp: Math.floor(Date.now() / 1000) + (60 * 60)
         },
         process.env.LEANCLOUD_APP_KEY!
       )
