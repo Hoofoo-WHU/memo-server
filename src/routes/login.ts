@@ -52,11 +52,11 @@ router.post('/github/:code', async (ctx) => {
       }
     })
     ctx.body = {
-      avatar: res2.data.avatar,
+      avatar: res2.data.avatar_url,
       name: res2.data.name,
       token: jwt.sign(
         {
-          avatar: res2.data.avatar,
+          avatar: res2.data.avatar_url,
           name: res2.data.name,
           id: res2.data.id
         },
